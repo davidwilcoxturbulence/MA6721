@@ -1,3 +1,6 @@
 streamlit
 plotly
 pandas  # Add other required libraries here
+matplotlib
+seaborn
+
