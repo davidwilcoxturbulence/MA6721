@@ -180,7 +180,8 @@ def plot_quantity_by_subcategory(dataframe):
 def gauge_chart(dataframe,item):
     df=dataframe.copy()
     top_profit = df.groupby('Product Name')['Profit'].sum().sort_values(ascending=False).head(5).reset_index()
-    value=top_profit.iloc[item][1]
+    row = top_profit.iloc[item]
+    value=row["Profit"]
     target=35000
     # Create a gauge chart
     fig = go.Figure(go.Indicator(
@@ -204,7 +205,7 @@ def gauge_chart(dataframe,item):
     
     # Adjust layout for appearance
     fig.update_layout(
-        title=top_profit.iloc[item][0],
+        title=row["Product Name"],
         height=400,
         width=800
     )
