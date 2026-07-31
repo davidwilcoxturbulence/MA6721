@@ -187,7 +187,7 @@ def gauge_chart(dataframe,item):
     fig = go.Figure(go.Indicator(
         mode="gauge+number",
         value=value,  # Adjust this value for the needle position
-        number={"prefix": "$"},
+        number={"prefix": "$", "valueformat": ",.0f", "font": {"size": 36}},
         gauge={
             'axis': {'range': [0, target]},  # Define the range
             'bar': {'color': "red"},  # Color of the needle
@@ -205,9 +205,9 @@ def gauge_chart(dataframe,item):
     
     # Adjust layout for appearance
     fig.update_layout(
-        title=row["Product Name"],
-        height=400,
-        width=800
+        title={"text": row["Product Name"], "font": {"size": 14}},
+        height=320,
+        margin=dict(l=20, r=20, t=60, b=20)
     )
     
     # Show the chart
